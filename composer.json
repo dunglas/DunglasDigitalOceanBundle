@@ -1,0 +1,34 @@
+{
+    "name": "dunglas/digital-ocean-bundle",
+    "description": "DigitalOcean API v2 client for Symfony and API Platform",
+    "keywords": ["DigitalOcean", "symfony", "API", "Cloud Hosting", "SSD", "VPS"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dunglas\\DigitalOceanBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "Dunglas\\DigitalOceanBundle\\Tests\\": "tests/" }
+    },
+    "authors": [
+        {
+            "name": "Kévin Dunglas",
+            "email": "kevin@dunglas.fr"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "symfony/config": "^4.4 || ^5.3",
+        "symfony/dependency-injection": "^4.4 || ^5.3",
+        "symfony/http-kernel": "^4.4 || ^5.3",
+        "toin0u/digitalocean-v2": "^4.3"
+    },
+    "require-dev": {
+        "guzzlehttp/promises": "^1.4",
+        "nyholm/psr7": "^1.4",
+        "symfony/http-client": "^4.4 || ^5.3",
+        "symfony/phpunit-bridge": "^5.3"
+    }
+}
