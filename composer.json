@@ -20,15 +20,15 @@
     ],
     "require": {
         "php": ">=7.2.5",
-        "symfony/config": "^4.4 || ^5.3",
-        "symfony/dependency-injection": "^4.4 || ^5.3",
-        "symfony/http-kernel": "^4.4 || ^5.3",
+        "symfony/config": "^4.4 || ^5.4",
+        "symfony/dependency-injection": "^4.4 || ^5.4",
+        "symfony/http-kernel": "^4.4 || ^5.4",
         "toin0u/digitalocean-v2": "^4.3"
     },
     "require-dev": {
         "guzzlehttp/promises": "^1.4",
         "nyholm/psr7": "^1.4",
-        "symfony/http-client": "^4.4 || ^5.3",
-        "symfony/phpunit-bridge": "^5.3"
+        "symfony/http-client": "^4.4 || ^5.4",
+        "symfony/phpunit-bridge": "^5.4"
     }
 }
