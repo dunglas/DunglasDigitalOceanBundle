@@ -53,7 +53,7 @@ of the Composer documentation.
 Open a command console, enter your project directory and execute:
 
 ```console
-$ composer require dunglas/digital-ocean-bundle symfony/http-client nyholm/psr7 guzzlehttp/promises
+composer require dunglas/digital-ocean-bundle symfony/http-client nyholm/psr7 guzzlehttp/promises
 ```
 
 The previous command installs the bundle, Symfony HttpClient and [the dependencies it needs](https://symfony.com.ua/doc/current/http_client.html#psr-18-and-psr-17)

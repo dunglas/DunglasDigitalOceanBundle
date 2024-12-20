@@ -26,10 +26,10 @@
         "toin0u/digitalocean-v2": "^4.3"
     },
     "require-dev": {
-        "guzzlehttp/promises": "^1.4",
+        "guzzlehttp/promises": "^1.4 || ^2.0",
         "nyholm/psr7": "^1.4",
         "symfony/http-client": "^4.4 || ^5.4 || ^6.4 || ^7.0",
-        "symfony/phpunit-bridge": "^6.0"
+        "symfony/phpunit-bridge": "^6.4 || ^7.0"
     },
     "config": {
         "allow-plugins": {
