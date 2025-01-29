@@ -22,7 +22,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
  */
 final class DunglasDigitalOceanExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
 

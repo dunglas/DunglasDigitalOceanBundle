@@ -4,26 +4,26 @@ on: ["pull_request", "push"]
 
 jobs:
     unit-tests:
-        name: "unit tests"
+        name: "unit tests ${{ matrix.php-version }} ${{ matrix.dependencies }}"
 
-        runs-on: ${{ matrix.operating-system }}
+        runs-on: ubuntu-latest
 
         strategy:
+            fail-fast: false
             matrix:
-                dependencies:
-                    - "lowest"
-                    - "highest"
                 php-version:
-                    - "7.2"
-                    - "7.3"
-                    - "7.4"
-                    - "8.0"
-                operating-system:
-                    - "ubuntu-latest"
+                    - "8.1"
+                    - "8.2"
+                    - "8.3"
+                    - "8.4"
+                dependencies: ["highest"]
+                include:
+                  - php-version: "8.4"
+                    dependencies: "lowest"
 
         steps:
             - name: "checkout"
-              uses: "actions/checkout@v2"
+              uses: "actions/checkout@v4"
 
             - name: "installing PHP"
               uses: "shivammathur/setup-php@v2"
@@ -32,25 +32,10 @@ jobs:
                   ini-values: memory_limit=-1
                   tools: composer:v2, cs2pr
 
-            - name: "caching dependencies"
-              uses: "actions/cache@v2"
-              with:
-                  path: |
-                      ~/.composer/cache
-                      vendor
-                  key: "php-${{ matrix.php-version }}-${{ matrix.operating-system }}"
-                  restore-keys: "php-${{ matrix.php-version }}-${{ matrix.operating-system }}"
-
-            - name: "installing lowest dependencies"
-              if: ${{ matrix.dependencies == 'lowest' }}
-              run: "composer update --prefer-lowest --no-interaction --no-progress --no-suggest"
-
-            - name: "installing highest dependencies"
-              if: ${{ matrix.dependencies == 'highest' }}
-              run: "composer update --no-interaction --no-progress --no-suggest"
-
-            - name: "installing phpunit"
-              run: "php vendor/bin/simple-phpunit install"
+            - name: "installing dependencies"
+              run: "composer update --no-interaction --no-progress --no-suggest ${{ matrix.dependencies == 'lowest' && '--prefer-lowest' || '' }}"
 
             - name: "running unit tests"
+              env:
+                SYMFONY_DEPRECATIONS_HELPER: ${{ matrix.php-version == '8.4' && 'disabled=1' || '' }}
               run: "php vendor/bin/simple-phpunit"
