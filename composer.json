@@ -23,7 +23,7 @@
         "symfony/config": "^4.4 || ^5.4 || ^6.4 || ^7.0",
         "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.4 || ^7.0",
         "symfony/http-kernel": "^4.4 || ^5.4 || ^6.4 || ^7.0",
-        "toin0u/digitalocean-v2": "^4.3"
+        "toin0u/digitalocean-v2": "^4.3 || ^5.0"
     },
     "require-dev": {
         "guzzlehttp/promises": "^1.4 || ^2.0",
