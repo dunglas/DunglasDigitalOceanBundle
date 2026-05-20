@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Dunglas\DigitalOceanBundle\Tests\DependencyInjection;
 
 use Dunglas\DigitalOceanBundle\DependencyInjection\Configuration;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
@@ -22,16 +23,14 @@ use Symfony\Component\Config\Definition\Processor;
  */
 class ConfigurationTest extends TestCase
 {
-    /**
-     * @dataProvider configsProvider
-     */
+    #[DataProvider('configsProvider')]
     public function testConfig(array $configs): void
     {
         $config = (new Processor())->processConfiguration(new Configuration(), $configs);
         $this->assertSame('foo', $config['connections']['default']['token']);
     }
 
-    public function configsProvider(): iterable
+    public static function configsProvider(): iterable
     {
         yield [
             [

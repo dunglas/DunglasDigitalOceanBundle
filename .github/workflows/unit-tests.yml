@@ -2,6 +2,9 @@ name: "unit tests"
 
 on: ["pull_request", "push"]
 
+permissions:
+    contents: "read"
+
 jobs:
     unit-tests:
         name: "unit tests ${{ matrix.php-version }} ${{ matrix.dependencies }}"
@@ -16,14 +19,17 @@ jobs:
                     - "8.2"
                     - "8.3"
                     - "8.4"
+                    - "8.5"
                 dependencies: ["highest"]
                 include:
-                  - php-version: "8.4"
+                  - php-version: "8.5"
                     dependencies: "lowest"
 
         steps:
             - name: "checkout"
-              uses: "actions/checkout@v4"
+              uses: "actions/checkout@v6"
+              with:
+                persist-credentials: false
 
             - name: "installing PHP"
               uses: "shivammathur/setup-php@v2"
@@ -37,5 +43,5 @@ jobs:
 
             - name: "running unit tests"
               env:
-                SYMFONY_DEPRECATIONS_HELPER: ${{ matrix.php-version == '8.4' && 'disabled=1' || '' }}
-              run: "php vendor/bin/simple-phpunit"
+                SYMFONY_DEPRECATIONS_HELPER: ${{ matrix.php-version == '8.5' && 'disabled=1' || '' }}
+              run: "php vendor/phpunit"
