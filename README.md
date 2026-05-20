@@ -26,12 +26,12 @@ class ProductController
     {
         // get the first 100 droplets as an array
         $droplets = $doClient->droplet()->getAll();
-        
+
         // or create a new result pager
         $pager = new ResultPager($doClient);
 
         // and get all droplets as an array
-        $droplets = $pager->fetchAll($doClient->droplet(), 'getAll'); 
+        $droplets = $pager->fetchAll($doClient->droplet(), 'getAll');
 
         // ...
     }
@@ -90,12 +90,12 @@ return [
 
 ```yaml
 dunglas_digital_ocean:
-    connections:
-        primary: # can be any name
-            token: <your-access-token>
-        secondary:
-            token: <your-access-token>
-    default_connection: primary # If not set, the first in the list will be used
+  connections:
+    primary: # can be any name
+      token: <your-access-token>
+    secondary:
+      token: <your-access-token>
+  default_connection: primary # If not set, the first in the list will be used
 ```
 
 This configuration automatically registers the following autowiring aliases:
