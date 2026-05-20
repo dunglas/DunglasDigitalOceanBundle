@@ -29,7 +29,7 @@
         "guzzlehttp/promises": "^1.4 || ^2.0",
         "nyholm/psr7": "^1.4",
         "symfony/http-client": "^4.4 || ^5.4 || ^6.4 || ^7.0 || ^8.0",
-        "phpunit/phpunit": "^13.1"
+        "phpunit/phpunit": "^10 || ^11 || ^12 || ^13"
     },
     "config": {
         "allow-plugins": {

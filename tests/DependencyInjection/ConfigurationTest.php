@@ -23,6 +23,9 @@ use Symfony\Component\Config\Definition\Processor;
  */
 class ConfigurationTest extends TestCase
 {
+    /**
+     * @dataProvider configsProvider
+     */
     #[DataProvider('configsProvider')]
     public function testConfig(array $configs): void
     {
